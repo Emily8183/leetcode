@@ -1,6 +1,6 @@
 //二分查找: 左闭右闭，左闭右开。每次搜索时坚持循环不变量
 
-//binary search only works on sorted arrays
+//binary search only works on sorted arrays, 且其中的元素不重复
 // Original Solution
 //nothing printing out as there's only return, no console.log
 

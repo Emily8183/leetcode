@@ -4,7 +4,7 @@ var search = function (nums, target) {
   let middle = Math.floor((start + end) / 2);
 
   while (start <= end && nums[middle] !== target) {
-    if (target <= num[middle]) {
+    if (target < nums[middle]) {
       end = middle - 1;
     } else {
       start = middle + 1;
