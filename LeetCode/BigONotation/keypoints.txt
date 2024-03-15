@@ -1,0 +1,13 @@
+BigO: O(f(n))
+It allows us to talk in a very formal way about how the runtime of an algorithm grows as the inputs grow. 
+the relationship between the input size and then the time relative to that input.
+
+Auxiliary space complexity
+
+The binary logarithm of a number roughly measures the number of times you can divide that number by two before you get a value that's less than or equal to one.
+一个数的二进制对数大致测量了你可以将该数除以二多少次，直到得到一个小于或等于一的值。
+
+
+
+
+
