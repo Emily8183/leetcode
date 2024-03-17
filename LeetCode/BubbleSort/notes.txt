@@ -1,0 +1,18 @@
+a sorting algorithm where the larget values bubble up to the top
+compare two numbers next to each other, swap so the bigger number will be at the right
+
+how to swap in js (the traditional way):
+const swap = (arr, idx1, idx2) => {
+  const temp = arr[idx1];
+  arr[idx1] = arr[idx2];
+  arr[idx2] = temp;
+};
+
+Or, here's a better way:
+const swap = (arr, idx1, idx2) => {
+    [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+};
+
+Process:
+1）需要有两个array, 比如[4，2，3], thats the outer array
+2) the inner array指的是相邻两个数需要相比，即 if arr[j] is greater than arr[j+1], then swap them

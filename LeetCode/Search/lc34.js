@@ -1,22 +1,3 @@
-// var searchInsert = function (nums, target) {
-//     let start = 0;
-//     let end = nums.length - 1;
-//     let middle = Math.floor((start + end) / 2);
-
-//     while (start <= end && nums[middle] !== target) {
-//       if (nums[middle] > target) {
-//         end = middle - 1;
-//       } else {
-//         start = middle + 1;
-//       }
-//       middle = Math.floor((start + end) / 2);
-//     }
-
-//     return nums[middle] === target ? middle : middle + 1;
-//   };
-
-//   searchInsert([1, 3, 5, 6], 5);
-
 /**
  * @param {number[]} nums
  * @param {number} target
@@ -33,9 +14,9 @@ var searchRange = function (nums, target) {
 
     while (start <= end) {
       let middle = Math.floor((start + end) / 2);
-      if (target > nums[m]) {
+      if (target > nums[middle]) {
         start = middle + 1;
-      } else if (target < nums[m]) {
+      } else if (target < nums[middle]) {
         end = middle - 1;
       } else {
         i = middle;
@@ -61,3 +42,5 @@ var searchRange = function (nums, target) {
     return [leftIndex, rightIndex];
   }
 };
+
+console.log(searchRange([8, 8, 8, 8], 8));
