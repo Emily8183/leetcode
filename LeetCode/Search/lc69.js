@@ -12,7 +12,7 @@ var searchRange = function (target) {
       end = middle - 1;
     } else {
       start = middle + 1;
-      result = middle; //当square小于target的情况下，如果已经找不到target了，就返回最接近target的数
+      result = middle; //当square小于target的情况下，如果找不到整数result，就需要在其中一种if...else的情况下返回最接近middle的数
     }
   }
 
