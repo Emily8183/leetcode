@@ -12,16 +12,19 @@ e) 创建一个arr遍历，这个arr初始值是n个index, 每个index初始值�
 f) 转圈的时候，while loop用的是i代表纵轴，j代表横轴
 
 3) 沿着四条边，【左闭右开】进行while loop遍历，一路++；如n x n是奇数，则需要最后填充中间的数字
+
+注意点：把中间数和return设置在循环外
 */
 
 var generateMatrix = function (n) {
-  let loop = map.floor(n / 2);
+  let loop = Math.floor(n / 2);
   // let mid = map.floor(n/2);
   let startX = 0;
   let startY = 0;
   let offset = 1;
   let count = 1;
   let res = new Array(n).fill(0).map(() => new Array(n).fill(0));
+  let mid = Math.floor(n / 2);
 
   while (loop--) {
     //设置i和j
@@ -29,13 +32,37 @@ var generateMatrix = function (n) {
       j = startY;
 
     //遍历正方形上边，从左到右，左闭右开
-    for (j = startY; j < startY - offset; j++) {
+    for (j = startY; j < n - offset; j++) {
       res[i][j] = count++;
     }
 
     //遍历正方形右边，从上到下，上闭下开. 注意这边必须是i++，因为数字是递增的。只有从右往左，数字变小时，才是i--
-    for (x = startX; x < startX - offset; i++) {
+    for (i = startX; i < n - offset; i++) {
       res[i][j] = count++;
     }
+
+    //遍历正方形下边，从右到左，右闭左开
+    for (; j > startY; j--) {
+      res[i][j] = count++;
+    }
+
+    //遍历正方形左边，从下到上，下闭上开
+    for (; i > startX; i--) {
+      res[i][j] = count++;
+    }
+
+    startX++;
+    startY++;
+
+    //不要忘记更新offeset
+    offset++;
   }
+
+  if (n % 2 !== 0) {
+    res[mid][mid] = count;
+  }
+
+  return res;
 };
+
+console.log(generateMatrix(1));
