@@ -8,10 +8,30 @@
 
 3）需要设置的变量：
 a) sum：滑动窗口的累加和
-b) left：滑动窗口的左边界
-c) right：滑动窗口的右边界
+b) start：滑动窗口的左边界
+c) end：滑动窗口的右边界
 d) ans：滑动窗口的最大值
 
 */
 
-var minSubArrayLen = function (target, nums) {};
+var minSubArrayLen = function (target, nums) {
+  let ans = Number.MAX_VALUE;
+  let start = 0;
+  let end = 0;
+  let sums = 0;
+
+  while (end < nums.length) {
+    sums += nums[end];
+    while (sums >= target) {
+      //注意这里是<=，要把=也考虑进去
+      ans = Math.min(ans, end - start + 1);
+      sums -= nums[start];
+      start++;
+    }
+    end++;
+    //end是往右推，因此是++
+  }
+  return ans === Number.MAX_VALUE ? 0 : ans;
+};
+
+console.log(minSubArrayLen(7, [2, 3, 1, 2, 4, 3]));
