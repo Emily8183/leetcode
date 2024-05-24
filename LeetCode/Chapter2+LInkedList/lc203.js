@@ -6,7 +6,7 @@
 a)从虚拟头结点开始，因为需要删除的是current.next；
 b)确保遍历时，current.next不为null。Null的话就是到终点了，还遍历啥；
 4) 如果current.next的值等于val，则current.next = current.next.next，相当于把current.next踢走了；
-如果不等于val，说明可以停止了，current=current.next；
+如果不等于val， 那么current = current.next，把current指向下一个节点，继续遍历。
 5) 最后！最神奇的地方！return新的head，就可以打印新的链表了；
 
 */
